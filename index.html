@@ -23,8 +23,9 @@
     </div>
 
     <div id="portal">
-        <button class="game-btn" onclick="loadGame('slope')">Run Script: Slope</button>
-        <button class="game-btn" onclick="loadGame('ovo')">Run Script: OvO</button>
+        <button class="game-btn" onclick="loadGame('slope')">Play: Slope</button>
+        <button class="game-btn" onclick="loadGame('ovo')">Play: OvO</button>
+        <button class="game-btn" onclick="loadGame('')">Play: TEST</button>
     </div>
 
     <div id="game-display" class="hidden">
@@ -45,6 +46,8 @@
                 frame.src = "https://slopenexus.github.io/games/v1.2.5/index.html";
             } else if (game === 'ovo') {
                 frame.src = "https://arjun99ab.github.io/ovo/1.4/";
+              else if (game === 'TEST');
+                frame.src = "https://blankslate.io/"
             }
 
             portal.classList.add('hidden');
