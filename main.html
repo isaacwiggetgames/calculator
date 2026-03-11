@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graphing Calculator - Assets</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background-color: #1a1a1a; color: #00ff00; text-align: center; overflow: hidden; }
+        .hidden { display: none !important; }
+        
+        /* UI Elements */
+        .game-btn { 
+            background: #333; color: #00ff00; border: 1px solid #00ff00; 
+            padding: 10px 20px; margin: 10px; cursor: pointer; font-size: 18px;
+        }
+        .game-btn:hover { background: #00ff00; color: #000; }
+        
+        iframe { border: 2px solid #444; width: 90vw; height: 80vh; border-radius: 10px; }
+
+        /* The Panic Screen */
+        #panic-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: white; color: black; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+        }
+        #panic-screen img { max-width: 80%; }
+    </style>
+</head>
+<body>
+
+    <div id="panic-screen" class="hidden">
+        <div style="text-align: center;">
+            <h1 style="font-family: sans-serif;">Advanced Calculus Review - Unit 4</h1>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Linear_regression.svg/1200px-Linear_regression.svg.png" alt="Math Chart">
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div id="math-header">
+            <h1>System Terminal: Math-Assets-v4</h1>
+            <p>Directory: /root/calculus/scripts/</p>
+            <hr style="border: 0.5px solid #333; width: 80%;">
+        </div>
+
+        <div id="portal">
+            <button class="game-btn" onclick="loadGame('slope')">Execute: Slope.exe</button>
+            <button class="game-btn" onclick="loadGame('ovo')">Execute: OvO.sh</button>
+        </div>
+
+        <div id="game-display" class="hidden">
+            <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
+            <br>
+            <button class="game-btn" onclick="location.reload()">Return to Directory</button>
+        </div>
+    </div>
+
+    <script>
+        function loadGame(game) {
+            const frame = document.getElementById('game-frame');
+            const portal = document.getElementById('portal');
+            const display = document.getElementById('game-display');
+            const header = document.getElementById('math-header');
+
+            if (game === 'slope') {
+                frame.src = "https://slopenexus.github.io/games/v1.2.5/index.html";
+            } else if (game === 'ovo') {
+                frame.src = "https://arjun99ab.github.io/ovo/1.4/";
+            }
+
+            portal.classList.add('hidden');
+            header.classList.add('hidden');
+            display.classList.remove('hidden');
+            // Shift focus to the window so the Panic Key works immediately
+            window.focus();
+        }
+
+        // PANIC KEY SCRIPT
+        document.addEventListener('keydown', function(event) {
+            // Press 'Escape' to trigger Panic Mode
+            if (event.key === "Escape") {
+                document.getElementById('main-content').classList.add('hidden');
+                document.getElementById('panic-screen').classList.remove('hidden');
+                document.title = "Math Workbook PDF"; // Changes the tab name instantly
+            }
+        });
+    </script>
+</body>
+</html>
