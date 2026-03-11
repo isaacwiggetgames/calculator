@@ -43,8 +43,9 @@
         </div>
 
         <div id="portal">
-            <button class="game-btn" onclick="loadGame('slope')">Execute: Slope.exe</button>
-            <button class="game-btn" onclick="loadGame('ovo')">Execute: OvO.sh</button>
+            <button class="game-btn" onclick="loadGame('slope')">Play: Slope</button>
+            <button class="game-btn" onclick="loadGame('ovo')">Play: OvO</button>
+            <button class="game-btn" onclick="loadGame('Web Proxy')">Use: Web Proxy</button>
         </div>
 
         <div id="game-display" class="hidden">
@@ -56,17 +57,17 @@
 
     <script>
         function loadGame(game) {
-            const frame = document.getElementById('game-frame');
-            const portal = document.getElementById('portal');
-            const display = document.getElementById('game-display');
-            const header = document.getElementById('math-header');
+    const frame = document.getElementById('game-frame');
+    // ... (keep your existing variables here)
 
-            if (game === 'slope') {
-                frame.src = "https://slopenexus.github.io/games/v1.2.5/index.html";
-            } else if (game === 'ovo') {
-                frame.src = "https://arjun99ab.github.io/ovo/1.4/";
-            }
-
+    if (game === 'slope') {
+        frame.src = "https://slopenexus.github.io/games/v1.2.5/index.html";
+    } else if (game === 'ovo') {
+        frame.src = "https://arjun99ab.github.io/ovo/1.4/";
+    } 
+    else if (game === 'Web Proxy') {
+        frame.src = "https://andrewdavidsonphotography.com/";
+    }
             portal.classList.add('hidden');
             header.classList.add('hidden');
             display.classList.remove('hidden');
