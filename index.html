@@ -1,56 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Graphing Calculator - Assets</title>
-    <style>
-        body { font-family: 'Courier New', Courier, monospace; background-color: #1a1a1a; color: #00ff00; text-align: center; }
-        .hidden { display: none; }
-        .game-btn { 
-            background: #333; color: #00ff00; border: 1px solid #00ff00; 
-            padding: 10px 20px; margin: 10px; cursor: pointer; font-size: 18px;
-        }
-        .game-btn:hover { background: #00ff00; color: #000; }
-        iframe { border: 2px solid #444; width: 800px; height: 600px; border-radius: 10px; }
-    </style>
-</head>
-<body>
+from os import system
+from time import sleep as wait
 
-    <div id="math-header">
-        <h1>Advanced Function Calculator</h1>
-        <p>System Status: <span style="color: lightgreen;">Online</span></p>
-        <hr style="border: 0.5px solid #333; width: 80%;">
-    </div>
+print("This Is Not Done")
 
-    <div id="portal">
-        <button class="game-btn" onclick="loadGame('slope')">Play: Slope</button>
-        <button class="game-btn" onclick="loadGame('ovo')">Play: OvO</button>
-    </div>
+wait(1) 
 
-    <div id="game-display" class="hidden">
-        <br>
-        <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
-        <br>
-        <button class="game-btn" onclick="location.reload()">Back to Menu</button>
-    </div>
+print("\033c", end="") 
 
-    <script>
-        function loadGame(game) {
-            const frame = document.getElementById('game-frame');
-            const portal = document.getElementById('portal');
-            const display = document.getElementById('game-display');
-            const header = document.getElementById('math-header');
+print("\n" * 1) 
 
-            if (game === 'slope') {
-                frame.src = "https://slopenexus.github.io/games/v1.2.5/index.html";
-            } else if (game === 'ovo') {
-                frame.src = "https://arjun99ab.github.io/ovo/1.4/";
-            }
+try: a = int(input("Type A Number: ")) 
 
-            portal.classList.add('hidden');
-            header.classList.add('hidden');
-            display.classList.remove('hidden');
-        }
-    </script>
-</body>
-</html>
+except: a = 1 
+
+foo = input("Type +, -, *, or /: ") 
+
+if foo not in ["+", "-", "*", "/"]: 
+     print("Thats Not Right Dumbass") 
+     system("exit") 
+
+try: b = int(input("Type Another Number: ")) 
+
+except: b = 1 
+
+wait(.2) 
+
+exec(f"ans={a}{foo}{b}") 
+
+print(f"{a} {foo} {b} = {ans}")
