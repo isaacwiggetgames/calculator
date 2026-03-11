@@ -43,22 +43,38 @@
         </div>
 
         <div id="portal">
-            <button class="game-btn" onclick="loadGame('slope')">Play: Slope</button>
-            <button class="game-btn" onclick="loadGame('ovo')">Play: OvO</button>
-            <button class="game-btn" onclick="loadGame('Web Proxy')">Use: Web Proxy</button>
-        </div>
+    <button class="game-btn" onclick="loadGame('slope')">Slope</button>
+    <button class="game-btn" onclick="loadGame('ovo')">OvO</button>
 
-        <div id="game-display" class="hidden">
-            <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
-            <br>
-            <button class="game-btn" onclick="location.reload()">Return to Directory</button>
-        </div>
+    <hr style="border: 0.5px solid #333; margin: 20px;">
+
+    <div style="margin-top: 20px;">
+        <p>Internal Web Browser Access:</p>
+        <input type="text" id="proxy-url" placeholder="https://andrewdavidsonphotography.com/" 
+               style="padding: 10px; width: 60%; background: #222; color: #00ff00; border: 1px solid #00ff00;">
+        <button class="game-btn" onclick="launchProxy()">Launch</button>
     </div>
+</div>
 
     <script>
         function loadGame(game) {
     const frame = document.getElementById('game-frame');
-    // ... (keep your existing variables here)
+
+    function launchProxy() {
+    const targetUrl = document.getElementById('proxy-url').value;
+    const frame = document.getElementById('game-frame');
+    const portal = document.getElementById('portal');
+    const display = document.getElementById('game-display');
+    const header = document.getElementById('math-header');
+
+    // This uses the proxy service to load the site you typed in
+    // Note: The proxy URL prefix might change depending on the service
+    frame.src = "https://andrewdavidsonphotography.com/main/" + targetUrl;
+
+    portal.classList.add('hidden');
+    header.classList.add('hidden');
+    display.classList.remove('hidden');
+}
 
     if (game === 'slope') {
         frame.src = "https://slopenexus.github.io/games/v1.2.5/index.html";
