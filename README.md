@@ -1,4 +1,4 @@
-#IMPORTANT
+# IMPORTANT
 Moved Over To Neocities.org
 
 # Unblocked Games And Web Proxy
